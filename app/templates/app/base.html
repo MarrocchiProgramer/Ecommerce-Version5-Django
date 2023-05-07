@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Skranji&family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %} ?v={{ random_string }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- ------P R I N C I P I O   D E   L A   P A G I N A-------- -->
+
+    <!-- header -->
+    <header id="header">
+        <h1 class="header-title">Guitarras Marrocchi</h1>
+        <a href="{% url 'contacto' %}"><p class="link-form">Contacto</p></a>
+    </header>
+    <!-- header -->
+
+    <!-- contenido -->
+    <div class="wrapper">
+    {% block wrapper %}
+
+    {% endblock %}
+    </div>
+    <!-- contenido -->
+
+    <!-- footer -->
+    <footer>
+
+    </footer>
+    <!-- footer -->
+
+    <!-- -----------F I N   D E   L A   P A G I N A---------- -->
+
+    
+    {% block app.js %}
+    <!-- ACA ESTABA EL SCRIPT -->
+    {% endblock %}
+
+    {% block carrito.js %}
+    <!-- ACA ESTABA EL SCRIPT -->
+    {% endblock %}
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

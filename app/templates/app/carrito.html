@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+<!-- 
+{% block carrito.js %}
+    {% load static %}
+    <script src="{% static '/app/static/js/carrito.js' %}"></script>
+{% endblock %} -->
+
+{% block wrapper %}
+
+    <div class="wrapper">
+        <aside>
+            <ul>
+                <li>
+                    <a class="boton-menu boton-volver" href="{% url 'home' %}">Volver</a>
+                </li>
+                <li>
+                    <a class="boton-menu boton-carrito active" href="{% url 'carrito' %}">Carrito</a>
+                </li>
+            </ul>
+        </aside>
+        <main>
+            <h2 class="titulo-principal">Todos los productos</h2>
+            <div class="contenedor-carrito">
+                <p class="carrito-vacio">Carrito vacio</p>
+
+                <div class="carrito-productos">
+                    <div class="carrito-producto">
+                        <!-- la imagen se deberia cargar de JS -->
+                        <img class="carrito-producto-imagen" src="./guitar-images/guitarra-acustica/Guitarra-Acustica-Cort.png" alt="">
+                        <div class="carrito-producto-nombre">
+                            <small>Nombre</small>
+                            <h3>Guitarra-01</h3>
+                        </div>
+                        <div class="carrito-producto-cantidad">
+                            <small>Cantidad</small>
+                            <p>01</p>
+                        </div>
+                        <div class="carrito-producto-precio">
+                            <small>Precio</small>
+                            <p>$1000</p>
+                        </div>
+                        <div class="carrito-producto-subtotal">
+                            <small>Subtotal</small>
+                            <p>$1000</p>
+                        </div>
+                        <button class="carrito-producto-eliminar">Eliminar</button>
+                    </div>
+                </div>
+                
+                <div class="carrito-acciones">
+                    <div class="carrito-opciones-izquierda">
+                        <button class="carrito-acciones-vaciar">Vaciar Carrito</button>
+                    </div>
+                    <div class="carrito-acciones-derecha">
+                        <div class="carrito-acciones-total">
+                            <p>Total:</p>
+                            <p>3000</p>
+                            <div class="carrito-opciones-comprar"><button>Comprar Ahora</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+{% endblock %}

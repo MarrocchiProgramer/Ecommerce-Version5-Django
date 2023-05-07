@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block app.js %}
+    {% load static %}
+    <script src="{% static '/js/app.js' %}"></script>
+{% endblock %} 
+
+{% block wrapper %}
+
+<aside>
+    <ul class="menu">
+        <li><button id="todos" class="boton-menu boton-categoria active">Todos los productos</button></li>
+        <li><button id="criolla" class="boton-menu boton-categoria">Guitarras Criollas</button></li>
+        <li><button id="acustica" class="boton-menu boton-categoria">Guitarras Acusticas</button></li>
+        <li><button id="electroacustica" class="boton-menu boton-categoria">Guitarras Electroacusticas</button>
+        </li>
+        <li><button id="electrica" class="boton-menu boton-categoria">Guitarras Electricas</button></li>
+    </ul>
+    <li>
+        <a href="{% url 'carrito' %}"><button class="boton-menu boton-carrito">Carrito</button></a>
+    </li>
+</aside>
+{% load humanize %}
+<main>
+    <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
+    <div id="contenedor-productos" class="contenedor-productos">
+        {% for p in productos %}
+            <div data-aos="zoom-in">
+                <div class="producto">
+                    {% if p.imagen %}
+                    <img src="{{ p.imagen.url }}"
+                        class="producto-imagen" alt="...">
+                    {% endif %}    
+                    <div class="productos-detalles">
+                        <h5 class="productos-marca">{{ p.marca | capfirst}}</h5>
+                        <h5 class="productos-titulo">{{ p.nombre | title }}</h5>
+                        <p class="productos-precio">${{ p.precio | intcomma}}</p>
+                        <button class="productos-agregar">Agregar al carrito</button>
+                        <!-- <button class="productos-agregar" id:"${producto.id}">Agregar al carrito</button> -->
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}
